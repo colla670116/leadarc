@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LeadArc — Our Advantage</title>
+  <meta name="description" content="LeadArc advantage: internal traffic (Facebook-led), fraud control, transparent tracking, and ops that scale US & EU with global reach." />
+  <style>
+    :root{
+      --bg:#061027;
+      --stroke:rgba(255,255,255,.12);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.70);
+      --muted2:rgba(255,255,255,.55);
+      --shadow:0 20px 80px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:var(--bg);
+      color:var(--text);
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 18px}
+    .nav{
+      position:sticky;top:0;z-index:20;
+      border-bottom:1px solid var(--stroke);
+      background:rgba(6,16,39,.72);
+      backdrop-filter: blur(12px);
+    }
+    .nav-inner{height:80px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand-badge{display:inline-flex;align-items:center;justify-content:center;padding:6px 10px;border-radius:16px;border:1px solid var(--stroke);background:rgba(255,255,255,.05)}
+    .brand img{height:56px;width:auto;display:block; filter: drop-shadow(0 10px 30px rgba(0,0,0,.35));}
+    .links{display:none;gap:18px;align-items:center}
+    .links a{font-size:14px;color:var(--muted2)}
+    .links a:hover{color:var(--text)}
+    .cta{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      height:42px;padding:0 16px;border-radius:18px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.08);
+      color:var(--text);font-weight:800;
+      transition:transform .15s ease, background .15s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{background:rgba(255,255,255,.12);transform:translateY(-1px)}
+    .btn.primary{background:rgba(255,255,255,.92);color:#0b1634;border-color:rgba(255,255,255,.92)}
+    .btn.primary:hover{background:#fff}
+    .btn.ghost{background:transparent}
+    @media(min-width:900px){.links{display:flex}}
+
+    .hero{position:relative;overflow:hidden;padding:52px 0 26px}
+    .hero:before{
+      content:"";position:absolute;left:50%;top:-240px;transform:translateX(-50%);
+      width:640px;height:640px;border-radius:999px;
+      background:radial-gradient(circle at center, rgba(255,255,255,.18), transparent 60%);
+      filter:blur(28px);pointer-events:none;
+    }
+    .grid{display:grid;gap:18px}
+    @media(min-width:900px){.grid.hero-grid{grid-template-columns:1.25fr .9fr;align-items:start}}
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 10px;border:1px solid var(--stroke);
+      background:rgba(255,255,255,.05);border-radius:999px;
+      font-size:12px;color:var(--muted);
+    }
+    h1{margin:14px 0 0;font-size:42px;line-height:1.05;letter-spacing:-.02em}
+    @media(min-width:900px){h1{font-size:52px}}
+    .lead{margin-top:12px;font-size:16px;line-height:1.7;color:var(--muted);max-width:760px}
+    .actions{margin-top:18px;display:flex;flex-direction:column;gap:10px}
+    @media(min-width:520px){.actions{flex-direction:row;align-items:center}}
+    .note{margin-top:10px;font-size:12px;color:var(--muted2)}
+
+    .panel{border:1px solid var(--stroke);background:rgba(255,255,255,.05);border-radius:28px;padding:16px;box-shadow:var(--shadow)}
+    .panel .top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .badge{border:1px solid var(--stroke);background:rgba(255,255,255,.07);padding:4px 10px;border-radius:999px;font-size:12px}
+    .card{border:1px solid var(--stroke);background:rgba(255,255,255,.05);border-radius:22px;padding:14px}
+    .card.dark{background:rgba(10,26,58,.60)}
+    .card h3{margin:0;font-size:14px;color:var(--muted2);font-weight:900}
+    .list{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:8px;color:var(--muted)}
+    .list li{display:flex;gap:10px;align-items:flex-start}
+    .dot{height:18px;width:18px;border-radius:8px;border:1px solid var(--stroke);background:rgba(255,255,255,.06);flex:0 0 auto}
+
+    .section{padding:54px 0}
+    .eyebrow{font-size:12px;letter-spacing:.18em;color:var(--muted2);font-weight:900}
+    h2{margin:10px 0 0;font-size:28px;letter-spacing:-.02em}
+    .p{margin:10px 0 0;color:var(--muted);line-height:1.8;max-width:860px}
+    .two{display:grid;gap:12px;margin-top:18px}
+    @media(min-width:900px){.two{grid-template-columns:1fr 1fr}}
+    .three{display:grid;gap:12px;margin-top:18px}
+    @media(min-width:900px){.three{grid-template-columns:repeat(3,1fr)}}
+    .title{margin:10px 0 0;color:var(--text);font-size:18px;font-weight:900}
+    .muted{color:var(--muted)}
+
+    .cta-box{border:1px solid var(--stroke);background:linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.05), transparent);border-radius:28px;padding:18px}
+    .cta-row{display:grid;gap:14px}
+    @media(min-width:900px){.cta-row{grid-template-columns:1.2fr .8fr;align-items:center}}
+    .input{height:42px;padding:0 14px;border-radius:18px;border:1px solid var(--stroke);background:rgba(255,255,255,.05);color:var(--text);width:100%;outline:none}
+
+    .footer{border-top:1px solid var(--stroke);padding:34px 0;color:var(--muted2);font-size:13px}
+    .footer-row{display:flex;flex-direction:column;gap:14px}
+    @media(min-width:900px){.footer-row{flex-direction:row;align-items:center;justify-content:space-between}}
+    .footer a:hover{color:var(--text)}
+
+    /* small anchors */
+    .toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .toc a{font-size:12px;color:var(--muted);border:1px solid var(--stroke);background:rgba(255,255,255,.04);padding:6px 10px;border-radius:999px}
+    .toc a:hover{color:var(--text);background:rgba(255,255,255,.08)}
+  </style>
+</head>
+<body>
+<header class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a class="brand" href="index.html"><span class="brand-badge"><img src="./images/logo.png" alt="LeadArc logo"></span></a>
+      <nav class="links">
+        <a href="index.html#services">Services</a>
+        <a href="#pillars">Pillars</a>
+        <a href="#process">Process</a>
+        <a href="#controls">Controls</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="cta">
+        <a class="btn" href="index.html">Home</a>
+        <a class="btn primary" href="mailto:admin@leadarc.vip?subject=LeadArc%20Advertiser%20Inquiry">Talk to Sales →</a>
+        <a class="btn ghost" href="http://leadarc.fuseclick.com/affaccount/signup?accountid=1">Affiliate signup</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="hero">
+  <div class="container">
+    <div class="grid hero-grid">
+      <div>
+        <div class="chips">
+          <div class="chip">🧠 Internal traffic</div>
+          <div class="chip">📣 Facebook-led execution</div>
+          <div class="chip">🛡️ Fraud control & compliance</div>
+        </div>
+
+        <h1>Our Advantage</h1>
+        <p class="lead">
+          Advertisers choose LeadArc for one reason: <b>we scale with control</b>.
+          Our strength is <b>internal traffic</b> — especially <b>Facebook-driven inventory</b> — backed by policy-led fraud controls,
+          transparent tracking, and an ops cadence built for US & EU growth (with global reach when needed).
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="mailto:admin@leadarc.vip?subject=LeadArc%20Advertiser%20Inquiry">Request a media plan →</a>
+          <a class="btn" href="#pillars">See the pillars</a>
+          <a class="btn ghost" href="http://leadarc.fuseclick.com/affaccount/signup?accountid=1">Affiliate signup</a>
+        </div>
+
+        <div class="toc">
+          <a href="#pillars">Pillars</a>
+          <a href="#internal">Internal traffic</a>
+          <a href="#process">Process</a>
+          <a href="#controls">Fraud control</a>
+          <a href="#reporting">Reporting</a>
+        </div>
+
+        <div class="note">Tip: email us KPI + GEO + vertical and we’ll reply with traffic types, compliance rules, and launch timeline.</div>
+      </div>
+
+      <aside class="panel">
+        <div class="top">
+          <div style="font-size:14px;color:var(--muted2);font-weight:900;">What advertisers get</div>
+          <div class="badge">US & EU focus</div>
+        </div>
+
+        <div style="margin-top:12px" class="card dark">
+          <h3>Default launch package</h3>
+          <ul class="list">
+            <li><span class="dot"></span><span>Internal traffic first (Facebook-led)</span></li>
+            <li><span class="dot"></span><span>Offer + landing flow review</span></li>
+            <li><span class="dot"></span><span>Compliance + messaging alignment</span></li>
+            <li><span class="dot"></span><span>Weekly iteration cadence</span></li>
+          </ul>
+        </div>
+
+        <div style="margin-top:12px" class="card">
+          <h3>Best for</h3>
+          <ul class="list">
+            <li><span class="dot"></span><span>Sweepstakes / Loan / Insurance</span></li>
+            <li><span class="dot"></span><span>eCom / CC Submit</span></li>
+            <li><span class="dot"></span><span>Offers that require traffic control</span></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<section id="pillars" class="section">
+  <div class="container">
+    <div class="eyebrow">PILLARS</div>
+    <h2>Four pillars that make scaling predictable</h2>
+    <div class="p">This is how we keep performance high while protecting quality and compliance.</div>
+
+    <div class="three">
+      <div class="card">
+        <div class="badge">01</div>
+        <div class="title">Internal traffic</div>
+        <div class="p muted">We prioritize internal sources and Facebook-led execution to maintain control and consistency.</div>
+        <ul class="list">
+          <li><span class="dot"></span><span>Facebook-driven inventory</span></li>
+          <li><span class="dot"></span><span>US & EU first, global when needed</span></li>
+          <li><span class="dot"></span><span>Offer-by-offer traffic rules</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="badge">02</div>
+        <div class="title">Fraud control</div>
+        <div class="p muted">Policy-led rules, validation, and monitoring to prevent junk traffic and protect your offer.</div>
+        <ul class="list">
+          <li><span class="dot"></span><span>Compliance gating</span></li>
+          <li><span class="dot"></span><span>Traffic validation & monitoring</span></li>
+          <li><span class="dot"></span><span>Fast enforcement</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="badge">03</div>
+        <div class="title">Optimization cadence</div>
+        <div class="p muted">Structured testing, creative iteration, and funnel improvements — week after week.</div>
+        <ul class="list">
+          <li><span class="dot"></span><span>Creative iteration</span></li>
+          <li><span class="dot"></span><span>Landing flow optimization</span></li>
+          <li><span class="dot"></span><span>Scale winners, cut noise</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="three" style="margin-top:12px;">
+      <div class="card">
+        <div class="badge">04</div>
+        <div class="title">Transparent reporting</div>
+        <div class="p muted">Clear reporting and decision notes — without pretending we have “live counters”.</div>
+        <ul class="list">
+          <li><span class="dot"></span><span>Transparent attribution setup</span></li>
+          <li><span class="dot"></span><span>Weekly performance notes</span></li>
+          <li><span class="dot"></span><span>Actionable next steps</span></li>
+        </ul>
+      </div>
+
+      <div class="card" id="internal">
+        <div class="badge">FOCUS</div>
+        <div class="title">Internal traffic (Facebook)</div>
+        <div class="p muted">Advertisers prefer internal traffic because it’s easier to control. We build programs around that preference.</div>
+        <ul class="list">
+          <li><span class="dot"></span><span>Controlled launch & scaling</span></li>
+          <li><span class="dot"></span><span>Compliance-first messaging</span></li>
+          <li><span class="dot"></span><span>Stable delivery for US/EU</span></li>
+        </ul>
+      </div>
+
+      <div class="card" id="reporting">
+        <div class="badge">REPORTING</div>
+        <div class="title">Tracking & attribution</div>
+        <div class="p muted">We align the rules upfront so both sides trust the numbers.</div>
+        <ul class="list">
+          <li><span class="dot"></span><span>Attribution rules defined upfront</span></li>
+          <li><span class="dot"></span><span>Clear allowed traffic types</span></li>
+          <li><span class="dot"></span><span>Optimization notes included</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process" class="section">
+  <div class="container">
+    <div class="eyebrow">PROCESS</div>
+    <h2>How we launch and scale</h2>
+    <div class="p">A repeatable workflow designed around internal traffic and compliance.</div>
+
+    <div class="two">
+      <div class="card">
+        <div class="badge">Step 1</div>
+        <div class="title">Align terms & rules</div>
+        <div class="p muted">Define KPI, GEO (US/EU), vertical, compliance requirements, and tracking setup.</div>
+        <ul class="list">
+          <li><span class="dot"></span><span>Offer review + positioning</span></li>
+          <li><span class="dot"></span><span>Allowed traffic types</span></li>
+          <li><span class="dot"></span><span>Creative guidelines</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="badge">Step 2</div>
+        <div class="title">Controlled test launch</div>
+        <div class="p muted">Start with internal traffic, validate signals, iterate quickly, then expand.</div>
+        <ul class="list">
+          <li><span class="dot"></span><span>Facebook-led test budget</span></li>
+          <li><span class="dot"></span><span>Creative iterations</span></li>
+          <li><span class="dot"></span><span>Landing flow improvements</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="two" style="margin-top:12px;">
+      <div class="card">
+        <div class="badge">Step 3</div>
+        <div class="title">Scale with guardrails</div>
+        <div class="p muted">We scale winners while protecting quality through monitoring and policy checks.</div>
+        <ul class="list">
+          <li><span class="dot"></span><span>Quality signals & monitoring</span></li>
+          <li><span class="dot"></span><span>Enforcement & compliance</span></li>
+          <li><span class="dot"></span><span>Weekly performance review</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="badge">Step 4</div>
+        <div class="title">Report & iterate</div>
+        <div class="p muted">Clear reporting plus actionable notes: what changed, why, and what’s next.</div>
+        <ul class="list">
+          <li><span class="dot"></span><span>Transparent tracking</span></li>
+          <li><span class="dot"></span><span>Optimization notes</span></li>
+          <li><span class="dot"></span><span>Next-step plan</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="controls" class="section">
+  <div class="container">
+    <div class="eyebrow">CONTROLS</div>
+    <h2>Fraud control that advertisers can trust</h2>
+    <div class="p">
+      “Fraud control” is not a single tool — it’s a policy system. We align expectations upfront, validate traffic, and enforce quickly.
+    </div>
+
+    <div class="three">
+      <div class="card">
+        <div class="badge">Policy</div>
+        <div class="title">Rules & compliance</div>
+        <div class="p muted">Define what’s allowed, what’s not, and how we enforce.</div>
+        <ul class="list">
+          <li><span class="dot"></span><span>Allowed traffic list</span></li>
+          <li><span class="dot"></span><span>Messaging constraints</span></li>
+          <li><span class="dot"></span><span>Brand safety checks</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="badge">Validation</div>
+        <div class="title">Traffic monitoring</div>
+        <div class="p muted">Ongoing monitoring to catch anomalies early.</div>
+        <ul class="list">
+          <li><span class="dot"></span><span>Quality signals review</span></li>
+          <li><span class="dot"></span><span>Behavioral checks</span></li>
+          <li><span class="dot"></span><span>Rapid investigations</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="badge">Enforcement</div>
+        <div class="title">Fast action</div>
+        <div class="p muted">Protect your offer by acting quickly when issues appear.</div>
+        <ul class="list">
+          <li><span class="dot"></span><span>Partner gating</span></li>
+          <li><span class="dot"></span><span>Traffic restriction</span></li>
+          <li><span class="dot"></span><span>Program resets if needed</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="section">
+  <div class="container">
+    <div class="eyebrow">FAQ</div>
+    <h2>Common questions</h2>
+
+    <div class="two">
+      <div class="card">
+        <div class="title">What does “internal traffic” mean?</div>
+        <div class="p muted">It means we prioritize traffic sources we can control and validate, rather than relying only on unknown third-party sources. We’re especially strong on Facebook-led execution.</div>
+      </div>
+      <div class="card">
+        <div class="title">Do you support global traffic?</div>
+        <div class="p muted">Yes. Our focus is US & EU, but we can expand globally depending on the offer and compliance requirements.</div>
+      </div>
+    </div>
+
+    <div class="two" style="margin-top:12px;">
+      <div class="card">
+        <div class="title">How do affiliates join?</div>
+        <div class="p muted">Affiliates apply via FuseClick. We review for compliance and program fit.</div>
+        <div style="margin-top:12px;"><a class="btn" href="http://leadarc.fuseclick.com/affaccount/signup?accountid=1">Affiliate signup →</a></div>
+      </div>
+      <div class="card">
+        <div class="title">How do we start as an advertiser?</div>
+        <div class="p muted">Email KPI + GEO + vertical and we’ll propose a plan (traffic types, compliance, and launch timeline).</div>
+        <div style="margin-top:12px;"><a class="btn primary" href="mailto:admin@leadarc.vip?subject=LeadArc%20Advertiser%20Inquiry">Contact sales →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cta-box">
+      <div class="cta-row">
+        <div>
+          <div class="eyebrow">CONTACT</div>
+          <h2>Want a US/EU launch plan?</h2>
+          <div class="p">
+            Send us: KPI, GEO, vertical, allowed traffic types, and any compliance notes.
+            We’ll respond with a clear proposal and next steps.
+            Email: <a href="mailto:admin@leadarc.vip" style="text-decoration:underline;text-underline-offset:4px;">admin@leadarc.vip</a>.
+          </div>
+        </div>
+        <div class="card" style="background:rgba(6,16,39,.35);">
+          <div style="font-size:14px;color:var(--muted);font-weight:900;">Typical reply: 1–2 business days</div>
+          <div style="margin-top:12px;display:flex;gap:10px;">
+            <input class="input" placeholder="Your email" />
+            <a class="btn primary" href="mailto:admin@leadarc.vip?subject=LeadArc%20Advertiser%20Inquiry">Email sales</a>
+          </div>
+          <div style="margin-top:10px;font-size:12px;color:var(--muted2);">Affiliate? Use: <a href="http://leadarc.fuseclick.com/affaccount/signup?accountid=1" style="text-decoration:underline;text-underline-offset:4px;">FuseClick signup</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-row">
+      <div style="display:flex;gap:12px;align-items:center;">
+        <span class="brand-badge"><img src="./images/logo.png" alt="LeadArc" style="height:56px;width:auto;display:block;"></span>
+        <div>
+          <div style="font-weight:900;color:var(--text);letter-spacing:-.01em;">LeadArc</div>
+          <div>Performance Marketing Partner • Internal traffic (Facebook)</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;">
+        <a href="index.html">Home</a>
+        <a href="#pillars">Pillars</a>
+        <a href="#process">Process</a>
+        <a href="#controls">Controls</a>
+        <a href="mailto:admin@leadarc.vip">Contact</a>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px;">
+      <div>© <span id="y"></span> LeadArc. All rights reserved.</div>
+      <div>Internal traffic • Facebook-led • US & EU focus • Global reach</div>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
