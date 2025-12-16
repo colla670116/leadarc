@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LeadArc — Be an Advertiser</title>
+  <meta name="description" content="Work with LeadArc as an advertiser. Internal traffic (Facebook-led), fraud control, transparent reporting. US & EU focus with global reach." />
+  <style>
+    :root{
+      --bg:#061027;
+      --stroke:rgba(255,255,255,.12);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.70);
+      --muted2:rgba(255,255,255,.55);
+      --shadow:0 20px 80px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background:var(--bg);
+      color:var(--text);
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 18px}
+    .nav{
+      position:sticky;top:0;z-index:20;
+      border-bottom:1px solid var(--stroke);
+      background:rgba(6,16,39,.72);
+      backdrop-filter: blur(12px);
+    }
+    .nav-inner{height:80px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand-badge{display:inline-flex;align-items:center;justify-content:center;padding:6px 10px;border-radius:16px;border:1px solid var(--stroke);background:rgba(255,255,255,.05)}
+    .brand img{height:56px;width:auto;display:block; filter: drop-shadow(0 10px 30px rgba(0,0,0,.35));}
+    .links{display:none;gap:18px;align-items:center}
+    .links a{font-size:14px;color:var(--muted2)}
+    .links a:hover{color:var(--text)}
+    .cta{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      height:42px;padding:0 16px;border-radius:18px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.08);
+      color:var(--text);font-weight:900;
+      transition:transform .15s ease, background .15s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{background:rgba(255,255,255,.12);transform:translateY(-1px)}
+    .btn.primary{background:rgba(255,255,255,.92);color:#0b1634;border-color:rgba(255,255,255,.92)}
+    .btn.primary:hover{background:#fff}
+    .btn.ghost{background:transparent}
+    @media(min-width:900px){.links{display:flex}}
+
+    .hero{position:relative;overflow:hidden;padding:52px 0 26px}
+    .hero:before{
+      content:"";position:absolute;left:50%;top:-240px;transform:translateX(-50%);
+      width:640px;height:640px;border-radius:999px;
+      background:radial-gradient(circle at center, rgba(255,255,255,.18), transparent 60%);
+      filter:blur(28px);pointer-events:none;
+    }
+    .grid{display:grid;gap:18px}
+    @media(min-width:900px){.grid.hero-grid{grid-template-columns:1.25fr .9fr;align-items:start}}
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 10px;border:1px solid var(--stroke);
+      background:rgba(255,255,255,.05);border-radius:999px;
+      font-size:12px;color:var(--muted);
+    }
+    h1{margin:14px 0 0;font-size:42px;line-height:1.05;letter-spacing:-.02em}
+    @media(min-width:900px){h1{font-size:52px}}
+    .lead{margin-top:12px;font-size:16px;line-height:1.7;color:var(--muted);max-width:820px}
+    .actions{margin-top:18px;display:flex;flex-direction:column;gap:10px}
+    @media(min-width:520px){.actions{flex-direction:row;align-items:center}}
+    .note{margin-top:10px;font-size:12px;color:var(--muted2)}
+
+    .panel{border:1px solid var(--stroke);background:rgba(255,255,255,.05);border-radius:28px;padding:16px;box-shadow:var(--shadow)}
+    .panel .top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .badge{border:1px solid var(--stroke);background:rgba(255,255,255,.07);padding:4px 10px;border-radius:999px;font-size:12px}
+    .card{border:1px solid var(--stroke);background:rgba(255,255,255,.05);border-radius:22px;padding:14px}
+    .card.dark{background:rgba(10,26,58,.60)}
+    .card h3{margin:0;font-size:14px;color:var(--muted2);font-weight:900}
+    .list{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:8px;color:var(--muted)}
+    .list li{display:flex;gap:10px;align-items:flex-start}
+    .dot{height:18px;width:18px;border-radius:8px;border:1px solid var(--stroke);background:rgba(255,255,255,.06);flex:0 0 auto}
+
+    .section{padding:54px 0}
+    .eyebrow{font-size:12px;letter-spacing:.18em;color:var(--muted2);font-weight:900}
+    h2{margin:10px 0 0;font-size:28px;letter-spacing:-.02em}
+    .p{margin:10px 0 0;color:var(--muted);line-height:1.85;max-width:900px}
+    .two{display:grid;gap:12px;margin-top:18px}
+    @media(min-width:900px){.two{grid-template-columns:1fr 1fr}}
+    .three{display:grid;gap:12px;margin-top:18px}
+    @media(min-width:900px){.three{grid-template-columns:repeat(3,1fr)}}
+    .title{margin:10px 0 0;color:var(--text);font-size:18px;font-weight:900}
+    .muted{color:var(--muted)}
+
+    .form{display:grid;gap:10px;margin-top:12px}
+    .row2{display:grid;gap:10px}
+    @media(min-width:900px){.row2{grid-template-columns:1fr 1fr}}
+    label{font-size:12px;color:var(--muted2);font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+    input, textarea, select{
+      width:100%;
+      border-radius:18px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.05);
+      color:var(--text);
+      padding:12px 14px;
+      outline:none;
+      font: inherit;
+    }
+    textarea{min-height:120px;resize:vertical}
+    .hint{font-size:12px;color:var(--muted2);line-height:1.6}
+    .divider{height:1px;background:var(--stroke);margin:12px 0}
+
+    .cta-box{border:1px solid var(--stroke);background:linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.05), transparent);border-radius:28px;padding:18px}
+    .footer{border-top:1px solid var(--stroke);padding:34px 0;color:var(--muted2);font-size:13px}
+    .footer-row{display:flex;flex-direction:column;gap:14px}
+    @media(min-width:900px){.footer-row{flex-direction:row;align-items:center;justify-content:space-between}}
+    .footer a:hover{color:var(--text)}
+  </style>
+</head>
+<body>
+<header class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a class="brand" href="index.html"><span class="brand-badge"><img src="./images/logo.png" alt="LeadArc logo"></span></a>
+      <nav class="links">
+        <a href="index.html#services">Services</a>
+        <a href="ouradvantage.html">Our advantage</a>
+        <a href="#requirements">What we need</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="cta">
+        <a class="btn" href="index.html">Home</a>
+        <a class="btn" href="ouradvantage.html">Our advantage</a>
+        <a class="btn primary" href="mailto:admin@leadarc.vip?subject=LeadArc%20Advertiser%20Inquiry">Email sales →</a>
+        <a class="btn ghost" href="http://leadarc.fuseclick.com/affaccount/signup?accountid=1">Affiliate signup</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="hero">
+  <div class="container">
+    <div class="grid hero-grid">
+      <div>
+        <div class="chips">
+          <div class="chip">🧠 Internal traffic</div>
+          <div class="chip">📣 Facebook-led execution</div>
+          <div class="chip">🛡️ Policy-led fraud control</div>
+        </div>
+
+        <h1>Be an Advertiser</h1>
+        <p class="lead">
+          If you’re an advertiser, we’ll help you launch and scale with <b>internal traffic</b> — especially <b>Facebook-driven inventory</b>.
+          We focus on US & EU with global reach when needed, and we operate with clear compliance guardrails.
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="#contact">Request a proposal →</a>
+          <a class="btn" href="#requirements">What we need</a>
+          <a class="btn ghost" href="mailto:admin@leadarc.vip?subject=LeadArc%20Advertiser%20Inquiry">Email: admin@leadarc.vip</a>
+        </div>
+
+        <div class="note">Prefer email? Send KPI + GEO + vertical and any compliance notes. We'll reply with a launch plan.</div>
+      </div>
+
+      <aside class="panel" id="contact">
+        <div class="top">
+          <div style="font-size:14px;color:var(--muted2);font-weight:900;">Quick intake (for advertisers)</div>
+          <div class="badge">1–2 business days</div>
+        </div>
+
+        <div style="margin-top:12px" class="card dark">
+          <h3>Fastest way to start</h3>
+          <ul class="list">
+            <li><span class="dot"></span><span>Send KPI + GEO + vertical</span></li>
+            <li><span class="dot"></span><span>Share allowed traffic + compliance rules</span></li>
+            <li><span class="dot"></span><span>We respond with a proposal + timeline</span></li>
+          </ul>
+        </div>
+
+        <div style="margin-top:12px" class="card">
+          <h3>Contact</h3>
+          <div class="p muted" style="margin-top:8px;">
+            Email sales: <a href="mailto:admin@leadarc.vip?subject=LeadArc%20Advertiser%20Inquiry" style="text-decoration:underline;text-underline-offset:4px;">admin@leadarc.vip</a>
+          </div>
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
+            <a class="btn primary" href="mailto:admin@leadarc.vip?subject=LeadArc%20Advertiser%20Inquiry">Email sales →</a>
+            <a class="btn" href="ouradvantage.html">See our advantage →</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<section class="section" id="requirements">
+  <div class="container">
+    <div class="eyebrow">WHAT WE NEED</div>
+    <h2>Info that helps us move fast</h2>
+    <div class="p">
+      The better the inputs, the faster we can propose a compliant plan and launch. This is especially important for
+      Facebook-led internal traffic.
+    </div>
+
+    <div class="two">
+      <div class="card">
+        <div class="badge">Required</div>
+        <div class="title">Core details</div>
+        <ul class="list">
+          <li><span class="dot"></span><span>Offer / product + conversion event definition</span></li>
+          <li><span class="dot"></span><span>KPI target (CPA / CPL / CPS / ROAS)</span></li>
+          <li><span class="dot"></span><span>Geo focus (US / EU) + any exclusions</span></li>
+          <li><span class="dot"></span><span>Vertical (Sweepstakes / Loan / Insurance / eCom / CC Submit)</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="badge">Compliance</div>
+        <div class="title">Guardrails</div>
+        <ul class="list">
+          <li><span class="dot"></span><span>Allowed traffic types + prohibited sources</span></li>
+          <li><span class="dot"></span><span>Creative guidelines & restricted claims</span></li>
+          <li><span class="dot"></span><span>Attribution window & tracking requirements</span></li>
+          <li><span class="dot"></span><span>Any compliance / legal notes we must follow</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="three">
+      <div class="card">
+        <div class="badge">Assets</div>
+        <div class="title">What speeds testing</div>
+        <div class="p muted">Landing pages, creative angles, and any “do / don’t” examples help us iterate faster.</div>
+      </div>
+      <div class="card">
+        <div class="badge">Tracking</div>
+        <div class="title">Setup expectations</div>
+        <div class="p muted">We align on tracking rules up front so reporting stays clean and trusted.</div>
+      </div>
+      <div class="card">
+        <div class="badge">Payment</div>
+        <div class="title">Commercial terms</div>
+        <div class="p muted">Payout model, caps, and invoice terms — we can move quickly once this is aligned.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="process">
+  <div class="container">
+    <div class="eyebrow">PROCESS</div>
+    <h2>How we work with advertisers</h2>
+    <div class="p">A simple workflow designed to keep internal traffic compliant and scalable.</div>
+
+    <div class="three">
+      <div class="card">
+        <div class="badge">Step 1</div>
+        <div class="title">Align rules</div>
+        <div class="p muted">Confirm KPI, GEO, allowed traffic, compliance restrictions, and tracking requirements.</div>
+        <ul class="list">
+          <li><span class="dot"></span><span>Offer review & positioning</span></li>
+          <li><span class="dot"></span><span>Compliance + messaging constraints</span></li>
+          <li><span class="dot"></span><span>Tracking rules defined</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="badge">Step 2</div>
+        <div class="title">Controlled tests</div>
+        <div class="p muted">Start with Facebook-led internal traffic, validate signals, then expand carefully.</div>
+        <ul class="list">
+          <li><span class="dot"></span><span>Creative iterations</span></li>
+          <li><span class="dot"></span><span>Landing flow optimization</span></li>
+          <li><span class="dot"></span><span>Quality monitoring</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="badge">Step 3</div>
+        <div class="title">Scale + report</div>
+        <div class="p muted">Scale winners with guardrails, and share clear optimization notes.</div>
+        <ul class="list">
+          <li><span class="dot"></span><span>Weekly iteration cadence</span></li>
+          <li><span class="dot"></span><span>Policy-led enforcement</span></li>
+          <li><span class="dot"></span><span>Transparent reporting</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact2">
+  <div class="container">
+    <div class="cta-box">
+      <div class="eyebrow">REQUEST A PROPOSAL</div>
+      <h2>Tell us what you’re optimizing for</h2>
+      <div class="p">Fill this out to generate an email draft to admin@leadarc.vip. (This form does not submit to a server.)</div>
+
+      <div class="divider"></div>
+
+      <form class="form" id="intakeForm">
+        <div class="row2">
+          <div>
+            <label for="company">Company</label>
+            <input id="company" name="company" placeholder="Company name" />
+          </div>
+          <div>
+            <label for="name">Contact name</label>
+            <input id="name" name="name" placeholder="Your name" />
+          </div>
+        </div>
+
+        <div class="row2">
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" placeholder="you@company.com" />
+          </div>
+          <div>
+            <label for="vertical">Vertical</label>
+            <select id="vertical" name="vertical">
+              <option value="">Select</option>
+              <option>Sweepstakes</option>
+              <option>Loan</option>
+              <option>Insurance</option>
+              <option>eCom</option>
+              <option>CC Submit</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row2">
+          <div>
+            <label for="geo">Geo</label>
+            <input id="geo" name="geo" placeholder="US, EU (or specify countries)" />
+          </div>
+          <div>
+            <label for="kpi">KPI target</label>
+            <input id="kpi" name="kpi" placeholder="CPA / CPL / CPS / ROAS + target" />
+          </div>
+        </div>
+
+        <div class="row2">
+          <div>
+            <label for="traffic">Allowed traffic</label>
+            <input id="traffic" name="traffic" placeholder="e.g., Internal traffic, Facebook-led, etc." />
+            <div class="hint">If you have restrictions, list them here (blocked sources, messaging constraints, etc.).</div>
+          </div>
+          <div>
+            <label for="tracking">Tracking / attribution</label>
+            <input id="tracking" name="tracking" placeholder="Postback, window, attribution rules..." />
+          </div>
+        </div>
+
+        <div>
+          <label for="notes">Notes / compliance</label>
+          <textarea id="notes" name="notes" placeholder="Any requirements, policies, prohibited claims, or special constraints..."></textarea>
+        </div>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:6px;">
+          <button type="button" class="btn primary" id="emailBtn">Generate email →</button>
+          <a class="btn" href="mailto:admin@leadarc.vip?subject=LeadArc%20Advertiser%20Inquiry">Or email directly</a>
+          <div class="hint">No server needed — this opens your email client with a prefilled message.</div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="container">
+    <div class="eyebrow">FAQ</div>
+    <h2>Common questions</h2>
+
+    <div class="two">
+      <div class="card">
+        <div class="title">Do you only do Facebook?</div>
+        <div class="p muted">Facebook-led internal traffic is our strength. We can expand channels depending on the offer and compliance requirements.</div>
+      </div>
+      <div class="card">
+        <div class="title">How fast can we launch?</div>
+        <div class="p muted">Typically days to a couple of weeks depending on tracking setup, compliance, and asset readiness.</div>
+      </div>
+    </div>
+
+    <div class="two" style="margin-top:12px;">
+      <div class="card">
+        <div class="title">How do you manage fraud control?</div>
+        <div class="p muted">Policy-led rules, validation, monitoring, and fast enforcement. We align requirements upfront and keep reporting transparent.</div>
+      </div>
+      <div class="card">
+        <div class="title">Are you an affiliate network?</div>
+        <div class="p muted">We operate performance partnerships and can work with affiliates when appropriate, but advertiser programs are designed around control and compliance.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-row">
+      <div style="display:flex;gap:12px;align-items:center;">
+        <span class="brand-badge"><img src="./images/logo.png" alt="LeadArc" style="height:56px;width:auto;display:block;"></span>
+        <div>
+          <div style="font-weight:900;color:var(--text);letter-spacing:-.01em;">LeadArc</div>
+          <div>Advertiser partnerships • Internal traffic (Facebook)</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;">
+        <a href="index.html">Home</a>
+        <a href="ouradvantage.html">Our advantage</a>
+        <a href="#requirements">What we need</a>
+        <a href="#contact">Contact</a>
+        <a href="mailto:admin@leadarc.vip">Email</a>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px;">
+      <div>© <span id="y"></span> LeadArc. All rights reserved.</div>
+      <div>Internal traffic • Facebook-led • US & EU focus • Global reach</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  const EMAIL_TO = "admin@leadarc.vip";
+  function v(id) {
+    const el = document.getElementById(id);
+    return (el && el.value || "").trim();
+  }
+
+  document.getElementById('emailBtn').addEventListener('click', () => {
+    const company = v('company');
+    const name = v('name');
+    const email = v('email');
+    const vertical = v('vertical');
+    const geo = v('geo');
+    const kpi = v('kpi');
+    const traffic = v('traffic');
+    const tracking = v('tracking');
+    const notes = v('notes');
+
+    const subject = "LeadArc Advertiser Inquiry" + (company ? " — " + company : "");
+    const lines = [
+      "Hi LeadArc team,",
+      "",
+      "We'd like to discuss an advertiser partnership. Here are the details:",
+      "",
+      "Company: " + (company || "-"),
+      "Contact: " + (name || "-") + (email ? " (" + email + ")" : ""),
+      "Vertical: " + (vertical || "-"),
+      "Geo: " + (geo || "-"),
+      "KPI target: " + (kpi || "-"),
+      "Allowed traffic: " + (traffic || "-"),
+      "Tracking / attribution: " + (tracking || "-"),
+      "",
+      "Notes / compliance:",
+      (notes || "-"),
+      "",
+      "Thanks!"
+    ];
+
+    const body = encodeURIComponent(lines.join("\\n"));
+    const url = "mailto:" + EMAIL_TO + "?subject=" + encodeURIComponent(subject) + "&body=" + body;
+    window.location.href = url;
+  });
+</script>
+</body>
+</html>
