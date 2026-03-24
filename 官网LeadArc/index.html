@@ -1,375 +1,387 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LeadArc — Performance Marketing Partner</title>
-  <meta name="description" content="LeadArc is a performance marketing partner focused on US & EU with global reach. Verticals: Sweepstakes, Loan, Insurance, eCom, CC Submit. Internal traffic focus (Facebook)." />
-  <style>
-    :root{
-      --bg:#061027;
-      --stroke:rgba(255,255,255,.12);
-      --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.70);
-      --muted2:rgba(255,255,255,.55);
-      --shadow:0 20px 80px rgba(0,0,0,.35);
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background:var(--bg);
-      color:var(--text);
-    }
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1100px;margin:0 auto;padding:0 18px}
-    .nav{
-      position:sticky;top:0;z-index:20;
-      border-bottom:1px solid var(--stroke);
-      background:rgba(6,16,39,.72);
-      backdrop-filter: blur(12px);
-    }
-    .nav-inner{height:64px;display:flex;align-items:center;justify-content:space-between;gap:14px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand-badge{display:inline-flex;align-items:center;justify-content:center;padding:6px 10px;border-radius:16px;border:1px solid var(--stroke);background:rgba(255,255,255,.05)}
-    .brand img{height:56px;width:auto;display:block; filter: drop-shadow(0 10px 30px rgba(0,0,0,.35));}
-    .links{display:none;gap:18px;align-items:center}
-    .links a{font-size:14px;color:var(--muted2)}
-    .links a:hover{color:var(--text)}
-    .cta{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      height:42px;padding:0 16px;border-radius:18px;
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.08);
-      color:var(--text);font-weight:700;
-      transition:transform .15s ease, background .15s ease;
-      white-space:nowrap;
-    }
-    .btn:hover{background:rgba(255,255,255,.12);transform:translateY(-1px)}
-    .btn.primary{background:rgba(255,255,255,.92);color:#0b1634;border-color:rgba(255,255,255,.92)}
-    .btn.primary:hover{background:#fff}
-    .btn.ghost{background:transparent}
-    @media(min-width:900px){.links{display:flex}}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeadArc | Premium Performance Marketing Partner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: { 400: '#60A5FA', 500: '#3b82f6', 600: '#2563eb', accent: '#8b5cf6' },
+                        dark: { 900: '#060913', 800: '#0F1523', 700: '#1A2333', 600: '#273346' }
+                    },
+                    animation: {
+                        'blob': 'blob 10s infinite',
+                        'blob-delayed': 'blob 12s infinite 2s',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
-    .hero{position:relative;overflow:hidden;padding:56px 0 26px}
-    .hero:before{
-      content:"";position:absolute;left:50%;top:-220px;transform:translateX(-50%);
-      width:560px;height:560px;border-radius:999px;
-      background:radial-gradient(circle at center, rgba(255,255,255,.18), transparent 60%);
-      filter:blur(28px);pointer-events:none;
-    }
-    .grid{display:grid;gap:22px}
-    @media(min-width:900px){.grid.hero-grid{grid-template-columns:1.25fr .9fr;align-items:center}}
-    .chips{display:flex;flex-wrap:wrap;gap:8px}
-    .chip{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:6px 10px;border:1px solid var(--stroke);
-      background:rgba(255,255,255,.05);border-radius:999px;
-      font-size:12px;color:var(--muted);
-    }
-    h1{margin:16px 0 0;font-size:42px;line-height:1.05;letter-spacing:-.02em}
-    @media(min-width:900px){h1{font-size:52px}}
-    .lead{margin-top:12px;font-size:16px;line-height:1.6;color:var(--muted);max-width:720px}
-    .actions{margin-top:18px;display:flex;flex-direction:column;gap:10px}
-    @media(min-width:520px){.actions{flex-direction:row;align-items:center}}
-    .meta-note{margin-top:10px;font-size:12px;color:var(--muted2)}
+    <style>
+        body { background-color: #060913; color: #F3F4F6; overflow-x: hidden; }
+        
+        /* 渐变文本 */
+        .text-gradient {
+            background: linear-gradient(135deg, #60A5FA 0%, #C084FC 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    .metrics{margin-top:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-    @media(min-width:900px){.metrics{grid-template-columns:repeat(3,1fr)}}
-    .metric{border:1px solid var(--stroke);background:rgba(255,255,255,.05);border-radius:18px;padding:12px 14px}
-    .metric .k{font-size:13px;color:var(--muted2)}
-    .metric .v{margin-top:6px;font-size:18px;font-weight:900;letter-spacing:-.01em}
+        /* 玻璃质感导航栏 */
+        .glass-nav {
+            background: rgba(6, 9, 19, 0.6);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
 
-    .panel{border:1px solid var(--stroke);background:rgba(255,255,255,.05);border-radius:28px;padding:16px;box-shadow:var(--shadow)}
-    .panel .top{display:flex;align-items:center;justify-content:space-between;gap:10px}
-    .badge{border:1px solid var(--stroke);background:rgba(255,255,255,.07);padding:4px 10px;border-radius:999px;font-size:12px}
-    .card{border:1px solid var(--stroke);background:rgba(255,255,255,.05);border-radius:22px;padding:14px}
-    .card.dark{background:rgba(10,26,58,.60)}
-    .card h3{margin:0;font-size:14px;color:var(--muted2);font-weight:800}
-    .list{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:8px;color:var(--muted)}
-    .list li{display:flex;gap:10px;align-items:flex-start}
-    .dot{height:18px;width:18px;border-radius:8px;border:1px solid var(--stroke);background:rgba(255,255,255,.06);flex:0 0 auto}
+        /* 高级悬停卡片 */
+        .premium-card {
+            background: linear-gradient(180deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 21, 35, 0.8) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .premium-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px -15px rgba(59, 130, 246, 0.15);
+            border-color: rgba(96, 165, 250, 0.3);
+            background: linear-gradient(180deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 21, 35, 0.9) 100%);
+        }
 
-    .section{padding:54px 0}
-    .eyebrow{font-size:12px;letter-spacing:.18em;color:var(--muted2);font-weight:900}
-    h2{margin:10px 0 0;font-size:28px;letter-spacing:-.02em}
-    .p{margin:10px 0 0;color:var(--muted);line-height:1.7;max-width:760px}
-    .cards{display:grid;gap:12px;margin-top:18px}
-    @media(min-width:900px){.cards{grid-template-columns:repeat(3,1fr)}}
-    .cards .card{border-radius:26px;padding:18px}
-    .cards .card h3.title{margin:10px 0 0;color:var(--text);font-size:18px}
-    .cards .card p{margin:10px 0 0;color:var(--muted);line-height:1.65}
-    .split{display:grid;gap:12px;margin-top:18px}
-    @media(min-width:900px){.split{grid-template-columns:1fr 1fr}}
+        /* 按钮扫光特效 */
+        .btn-shimmer { position: relative; overflow: hidden; }
+        .btn-shimmer::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+            transform: rotate(30deg);
+            animation: shimmer 3s infinite linear;
+        }
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(30deg); }
+            100% { transform: translateX(100%) rotate(30deg); }
+        }
 
-    .cta-box{border:1px solid var(--stroke);background:linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.05), transparent);border-radius:28px;padding:18px}
-    .cta-row{display:grid;gap:14px}
-    @media(min-width:900px){.cta-row{grid-template-columns:1.2fr .8fr;align-items:center}}
-    .input{height:42px;padding:0 14px;border-radius:18px;border:1px solid var(--stroke);background:rgba(255,255,255,.05);color:var(--text);width:100%;outline:none}
+        /* 连线时间轴 */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 1.5rem; /* 对应图标中心 */
+            top: 3rem;
+            bottom: -1rem;
+            width: 2px;
+            background: linear-gradient(180deg, rgba(59, 130, 246, 0.5) 0%, rgba(255, 255, 255, 0.05) 100%);
+            z-index: -1;
+        }
 
-    .footer{border-top:1px solid var(--stroke);padding:34px 0;color:var(--muted2);font-size:13px}
-    .footer-row{display:flex;flex-direction:column;gap:14px}
-    @media(min-width:900px){.footer-row{flex-direction:row;align-items:center;justify-content:space-between}}
-    .footer a:hover{color:var(--text)}
-  </style>
+        /* 滚动渐显动画 */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+    </style>
 </head>
-<body>
-<header class="nav">
-  <div class="container">
-    <div class="nav-inner">
-      <a class="brand" href="#"><span class="brand-badge"><img src="./images/logo.png" alt="LeadArc logo"></span></a>
-      <nav class="links">
-        <a href="#services">Services</a>
-        <a href="#how">How it works</a>
-        <a href="#partners">Advertisers</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-      <div class="cta">
-        <a class="btn" href="ouradvantage.html">Our advantage</a>
-        <a class="btn primary" href="mailto:admin@leadarc.vip?subject=LeadArc%20Advertiser%20Inquiry">Talk to Sales →</a>
-        <a class="btn ghost" href="http://leadarc.fuseclick.com/affaccount/signup?accountid=1">Affiliate signup</a>
-      </div>
-    </div>
-  </div>
-</header>
+<body class="antialiased selection:bg-brand-500 selection:text-white">
 
-<main class="hero">
-  <div class="container">
-    <div class="grid hero-grid">
-      <div>
-        <div class="chips">
-          <div class="chip">🧠 Internal traffic focus</div>
-          <div class="chip">📣 Facebook-first scaling</div>
-          <div class="chip">🛡️ Fraud-control & policy-led</div>
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-500 py-3" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="flex-shrink-0 flex items-center gap-3 cursor-pointer group">
+    <img src="./images/logo.png" alt="LeadArc Logo" class="h-14 w-auto object-contain transition-transform duration-500 group-hover:scale-105" onerror="this.outerHTML='<div class=\'w-14 h-14 rounded-xl bg-gradient-to-tr from-brand-500 to-brand-accent flex items-center justify-center font-bold text-white shadow-lg shadow-brand-500/30\'>L</div>'">
+    
+    <span class="hidden">LeadArc</span>
+</a>
+                
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#services" class="text-gray-400 hover:text-white transition-colors text-sm font-medium tracking-wide">Services</a>
+                    <a href="#process" class="text-gray-400 hover:text-white transition-colors text-sm font-medium tracking-wide">Process</a>
+                    <a href="#faq" class="text-gray-400 hover:text-white transition-colors text-sm font-medium tracking-wide">FAQ</a>
+                    <a href="mailto:admin@leadarc.vip" class="bg-white/5 border border-white/10 hover:bg-white/10 hover:border-brand-500/50 text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-all backdrop-blur-md">Contact Us</a>
+                </div>
+            </div>
         </div>
-        <h1>Performance Marketing Partner</h1>
-        <p class="lead">
-          We help advertisers acquire customers through performance partnerships — with transparent tracking,
-          brand-safe execution, and scalable delivery.
-          <b> Our strength is internal traffic</b>, especially <b>Facebook-driven inventory</b>, with US & EU focus and global reach.
-        </p>
-        <div class="actions">
-          <a class="btn primary" href="mailto:admin@leadarc.vip?subject=LeadArc%20Advertiser%20Inquiry">Talk to Sales →</a>
-          <a class="btn" href="#services">See what we do</a>
-          <a class="btn ghost" href="http://leadarc.fuseclick.com/affaccount/signup?accountid=1">Affiliate signup</a>
+    </nav>
+
+    <section class="relative pt-44 pb-20 lg:pt-60 lg:pb-32 overflow-hidden">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-600/30 rounded-full mix-blend-screen filter blur-[120px] opacity-70 animate-blob pointer-events-none"></div>
+        <div class="absolute top-20 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full mix-blend-screen filter blur-[120px] opacity-70 animate-blob-delayed pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal">
+            <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-brand-500/5 border border-brand-500/20 text-brand-400 text-sm font-semibold mb-8 backdrop-blur-sm shadow-[0_0_15px_rgba(59,130,246,0.1)]">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+                </span>
+                Premium Internal Traffic Partner
+            </div>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 leading-[1.1]">
+                Scale Acquisition. <br />
+                <span class="text-gradient">Zero Compromise.</span>
+            </h1>
+            <p class="mt-6 max-w-2xl mx-auto text-xl text-gray-400 mb-12 leading-relaxed font-light">
+                Delivering high-intent customers to top-tier US & EU brands through brand-safe execution and our proprietary Facebook-first network.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6 items-center">
+                <a href="mailto:admin@leadarc.vip" class="btn-shimmer bg-brand-600 text-white px-9 py-4 rounded-full font-semibold text-lg transition-all shadow-[0_0_30px_rgba(37,99,235,0.4)] hover:shadow-[0_0_40px_rgba(37,99,235,0.6)] hover:-translate-y-1 flex items-center gap-3">
+                    Get a Tailored Plan <i class="fas fa-arrow-right text-sm"></i>
+                </a>
+                <a href="http://leadarc.fuseclick.com/affaccount/signup?accountid=1" target="_blank" class="text-gray-300 hover:text-white font-medium text-lg transition-colors flex items-center gap-2 group">
+                    Apply as Affiliate <span class="group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+            </div>
         </div>
+    </section>
 
-        <div class="metrics">
-          <div class="metric"><div class="k">Vertical</div><div class="v">Sweepstakes · Loan · Insurance · eCom · CC Submit</div></div>
-          <div class="metric"><div class="k">Geo</div><div class="v">US & EU · Global</div></div>
-          <div class="metric"><div class="k">Traffic</div><div class="v">Internal · Facebook-led</div></div>
+    <section class="py-10 border-y border-white/5 bg-dark-800/30 backdrop-blur-sm relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/5">
+                <div class="reveal">
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1 tracking-tight">Tier 1</div>
+                    <div class="text-brand-400 text-sm font-medium uppercase tracking-wider">Geos Focused</div>
+                </div>
+                <div class="reveal delay-100">
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1 tracking-tight">100%</div>
+                    <div class="text-brand-400 text-sm font-medium uppercase tracking-wider">Brand Safe</div>
+                </div>
+                <div class="reveal delay-200">
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1 tracking-tight">FB-First</div>
+                    <div class="text-brand-400 text-sm font-medium uppercase tracking-wider">Traffic Source</div>
+                </div>
+                <div class="reveal delay-300">
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1 tracking-tight">5+</div>
+                    <div class="text-brand-400 text-sm font-medium uppercase tracking-wider">Core Verticals</div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="meta-note">
-          For advertisers: we can share a tailored plan (KPI, GEO, compliance, allowed traffic) over email.
+    <section id="services" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Engineered for <span class="text-gradient">Quality</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg font-light">We built our infrastructure to solve the biggest problem in performance marketing: scaling volume without dropping LTV.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="premium-card p-10 rounded-3xl reveal">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-500/20 to-transparent flex items-center justify-center text-brand-400 text-2xl mb-8 border border-brand-500/20 shadow-inner">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Internal Focus</h3>
+                    <p class="text-gray-400 leading-relaxed font-light">We dominate Facebook-driven internal inventory. No blind networks, just transparent, high-intent funnels optimized from click to conversion.</p>
+                </div>
+                
+                <div class="premium-card p-10 rounded-3xl reveal delay-100 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 blur-[50px]"></div>
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500/20 to-transparent flex items-center justify-center text-purple-400 text-2xl mb-8 border border-purple-500/20 shadow-inner relative z-10">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white relative z-10">Bulletproof Control</h3>
+                    <p class="text-gray-400 leading-relaxed font-light relative z-10">Brand safety is embedded in our DNA. We utilize active validation protocols to filter anomalies and protect your metrics.</p>
+                </div>
+                
+                <div class="premium-card p-10 rounded-3xl reveal delay-200">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-transparent flex items-center justify-center text-emerald-400 text-2xl mb-8 border border-emerald-500/20 shadow-inner">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Data-Led Scaling</h3>
+                    <p class="text-gray-400 leading-relaxed font-light">Growth should be predictable. We establish baselines via controlled testing, iterate heavily, and scale budgets with algorithmic precision.</p>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <aside class="panel" aria-label="Partner snapshot">
-        <div class="top">
-          <div style="font-size:14px;color:var(--muted2);font-weight:900;">Advertiser-ready snapshot</div>
-          <div class="badge">No live counters</div>
+    <section id="process" class="py-32 bg-dark-800/40 border-y border-white/5 relative">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvc3ZnPg==')] opacity-50"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row gap-20 items-center">
+                <div class="w-full lg:w-1/2 reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">A playbook that <span class="text-gradient">compounds.</span></h2>
+                    <p class="text-gray-400 text-lg mb-12 font-light">Replace guesswork with our rigid operational layer. Step-by-step execution designed for top-tier brands.</p>
+                    
+                    <div class="space-y-12 relative pl-4">
+                        <div class="relative timeline-line group">
+                            <div class="absolute -left-4 w-12 h-12 rounded-2xl bg-dark-900 border border-brand-500/50 flex items-center justify-center text-brand-400 font-bold z-10 shadow-[0_0_15px_rgba(59,130,246,0.2)] group-hover:scale-110 group-hover:bg-brand-600 group-hover:text-white transition-all duration-300">01</div>
+                            <div class="pl-16">
+                                <h4 class="text-2xl font-bold mb-3 text-white">Align & Define</h4>
+                                <p class="text-gray-400 leading-relaxed font-light">Locking in KPIs, GEO targets (US/EU), compliance boundaries, and tracking pixels before spending a single dollar.</p>
+                            </div>
+                        </div>
+                        <div class="relative timeline-line group">
+                            <div class="absolute -left-4 w-12 h-12 rounded-2xl bg-dark-900 border border-gray-700 flex items-center justify-center text-gray-400 font-bold z-10 group-hover:border-brand-500/50 group-hover:text-brand-400 group-hover:scale-110 transition-all duration-300">02</div>
+                            <div class="pl-16">
+                                <h4 class="text-2xl font-bold mb-3 text-white">Controlled Launch</h4>
+                                <p class="text-gray-400 leading-relaxed font-light">Deploying internal traffic to validate signals. We A/B test creatives and optimize the funnel to find the conversion sweet spot.</p>
+                            </div>
+                        </div>
+                        <div class="relative group">
+                            <div class="absolute -left-4 w-12 h-12 rounded-2xl bg-dark-900 border border-gray-700 flex items-center justify-center text-gray-400 font-bold z-10 group-hover:border-brand-500/50 group-hover:text-brand-400 group-hover:scale-110 transition-all duration-300">03</div>
+                            <div class="pl-16">
+                                <h4 class="text-2xl font-bold mb-3 text-white">Sustainable Scale</h4>
+                                <p class="text-gray-400 leading-relaxed font-light">Opening the tap cautiously. We expand budgets while enforcing strict quality monitoring and delivering weekly optimization reports.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-full lg:w-1/2 reveal delay-200 hidden md:block">
+                    <div class="bg-gradient-to-br from-dark-800 to-dark-900 border border-white/10 rounded-[2.5rem] p-1 shadow-2xl">
+                        <div class="bg-dark-900 rounded-[2.4rem] p-8 h-full relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-64 h-64 bg-brand-500/10 blur-[80px]"></div>
+                            <div class="flex items-center justify-between mb-8 border-b border-gray-800 pb-6">
+                                <div>
+                                    <div class="text-gray-500 text-sm font-medium mb-1">Active Verticals</div>
+                                    <div class="text-white font-bold text-xl">Top Performers</div>
+                                </div>
+                                <div class="h-10 w-10 rounded-full bg-brand-500/20 flex items-center justify-center text-brand-400"><i class="fas fa-chart-pie"></i></div>
+                            </div>
+                            
+                            <div class="space-y-5">
+                                <div class="flex items-center gap-4 group">
+                                    <div class="w-10 h-10 rounded-lg bg-dark-800 border border-gray-700 flex items-center justify-center text-gray-400 group-hover:border-brand-500 transition-colors"><i class="fas fa-gift"></i></div>
+                                    <div class="flex-1">
+                                        <div class="flex justify-between text-sm mb-2"><span class="text-gray-300 font-medium">Sweepstakes</span><span class="text-brand-400">High Vol</span></div>
+                                        <div class="h-1.5 w-full bg-dark-800 rounded-full overflow-hidden"><div class="h-full bg-brand-500 rounded-full w-[85%]"></div></div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4 group">
+                                    <div class="w-10 h-10 rounded-lg bg-dark-800 border border-gray-700 flex items-center justify-center text-gray-400 group-hover:border-purple-500 transition-colors"><i class="fas fa-hand-holding-dollar"></i></div>
+                                    <div class="flex-1">
+                                        <div class="flex justify-between text-sm mb-2"><span class="text-gray-300 font-medium">Finance / Loan</span><span class="text-purple-400">Scaling</span></div>
+                                        <div class="h-1.5 w-full bg-dark-800 rounded-full overflow-hidden"><div class="h-full bg-purple-500 rounded-full w-[70%]"></div></div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4 group">
+                                    <div class="w-10 h-10 rounded-lg bg-dark-800 border border-gray-700 flex items-center justify-center text-gray-400 group-hover:border-emerald-500 transition-colors"><i class="fas fa-heart-pulse"></i></div>
+                                    <div class="flex-1">
+                                        <div class="flex justify-between text-sm mb-2"><span class="text-gray-300 font-medium">Insurance</span><span class="text-emerald-400">Stable</span></div>
+                                        <div class="h-1.5 w-full bg-dark-800 rounded-full overflow-hidden"><div class="h-full bg-emerald-500 rounded-full w-[60%]"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div style="margin-top:12px" class="card dark">
-          <h3>Internal traffic, built to scale</h3>
-          <ul class="list">
-            <li><span class="dot"></span><span>Facebook-driven internal inventory</span></li>
-            <li><span class="dot"></span><span>Offer positioning & landing flow optimization</span></li>
-            <li><span class="dot"></span><span>Quality monitoring & sustainable scaling</span></li>
-          </ul>
+    <section id="contact" class="py-32 relative">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-600/10 rounded-full blur-[150px] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 reveal">
+                
+                <div class="premium-card p-12 rounded-[2.5rem] border border-brand-500/30 flex flex-col justify-between">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/10 text-brand-400 text-sm font-semibold mb-6">For Advertisers</div>
+                        <h3 class="text-4xl font-bold mb-4 text-white">Ready for US/EU Growth?</h3>
+                        <p class="text-gray-400 mb-8 text-lg font-light">Send us your KPI, GEO target, and vertical. Our team will engineer a custom traffic plan and reply within 48 hours.</p>
+                    </div>
+                    <a href="mailto:admin@leadarc.vip" class="inline-flex items-center justify-center gap-3 bg-white text-dark-900 px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition-transform hover:scale-[1.02] shadow-xl w-full sm:w-auto self-start">
+                        <i class="fas fa-envelope"></i> admin@leadarc.vip
+                    </a>
+                </div>
+
+                <div class="flex flex-col gap-8">
+                    <div class="premium-card p-10 rounded-[2.5rem] flex-1">
+                        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gray-700/50 text-gray-300 text-sm font-semibold mb-6">For Affiliates</div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Join the Network</h3>
+                        <p class="text-gray-400 mb-6 font-light">We prioritize compliance-forward partners. Gain tracking transparency and access to high-converting exclusive offers.</p>
+                        <a href="http://leadarc.fuseclick.com/affaccount/signup?accountid=1" target="_blank" class="inline-flex items-center justify-center gap-2 bg-transparent border border-gray-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-white/5 hover:border-white transition-all">
+                            Access Portal <i class="fas fa-external-link-alt text-sm"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="bg-dark-800/50 border border-white/5 p-8 rounded-3xl flex items-start gap-5">
+                        <div class="w-12 h-12 rounded-full bg-dark-700 border border-white/10 flex items-center justify-center text-brand-400 flex-shrink-0">
+                            <i class="fas fa-map-marker-alt text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold text-lg mb-1">Corporate HQ</h4>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                5142 N Academy Blvd Unit #4322<br/>
+                                Colorado Springs, CO 80918<br/>
+                                United States
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
+    </section>
 
-        <div style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-          <div class="card">
-            <h3>Quality</h3>
-            <div style="margin-top:8px;font-weight:900;font-size:16px;">Brand-safe</div>
-            <div style="margin-top:4px;font-size:12px;color:var(--muted2);">Policies & controls</div>
-          </div>
-          <div class="card">
-            <h3>Fraud control</h3>
-            <div style="margin-top:8px;font-weight:900;font-size:16px;">Policy-led</div>
-            <div style="margin-top:4px;font-size:12px;color:var(--muted2);">Validation & monitoring</div>
-          </div>
+    <footer class="border-t border-white/5 py-12 bg-dark-900 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
+                <a href="#" class="flex items-center gap-3 opacity-60 hover:opacity-100 transition-opacity">
+                    <img src="./images/logo.png" alt="LeadArc" class="h-8 w-auto grayscale" onerror="this.outerHTML='<div class=\'text-xl font-bold text-white\'>LeadArc</div>'">
+                </a>
+                <div class="flex flex-wrap justify-center gap-6 text-sm font-medium text-gray-500">
+                    <a href="#services" class="hover:text-white transition-colors">Services</a>
+                    <a href="#process" class="hover:text-white transition-colors">Process</a>
+                    <a href="http://leadarc.fuseclick.com/affaccount/signup?accountid=1" target="_blank" class="hover:text-white transition-colors">Affiliate Login</a>
+                    <a href="mailto:admin@leadarc.vip" class="hover:text-white transition-colors">Support</a>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600">
+                <p>&copy; 2026 LeadArc. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <span>Performance Marketing</span>
+                    <span class="text-gray-800">|</span>
+                    <span>US & EU Focus</span>
+                </div>
+            </div>
         </div>
+    </footer>
 
-        <div style="margin-top:12px" class="card">
-          <h3>What you get</h3>
-          <ul class="list">
-            <li><span class="dot"></span><span>Dedicated advertiser support</span></li>
-            <li><span class="dot"></span><span>Creative iteration & testing cadence</span></li>
-            <li><span class="dot"></span><span>Clear reporting & optimization notes</span></li>
-          </ul>
-        </div>
-      </aside>
-    </div>
-  </div>
-</main>
-
-<section id="services" class="section">
-  <div class="container">
-    <div class="eyebrow">SERVICES</div>
-    <h2>Built for advertisers who care about traffic quality</h2>
-    <div class="p">
-      We emphasize <b>internal traffic</b> and <b>Facebook-led execution</b>, with clear rules and a stable ops layer — so scaling doesn't compromise quality.
-    </div>
-
-    <div class="cards">
-      <div class="card">
-        <div class="badge">For advertisers</div>
-        <h3 class="title">Internal traffic, outcome-driven</h3>
-        <p>Acquire customers with performance media while keeping controls on quality, messaging, and compliance.</p>
-        <ul class="list" style="margin-top:12px;">
-          <li><span class="dot"></span><span>Facebook-driven internal inventory</span></li>
-          <li><span class="dot"></span><span>Offer & funnel optimization</span></li>
-          <li><span class="dot"></span><span>Brand safety & compliance checks</span></li>
-        </ul>
-        <div style="margin-top:14px;"><a class="btn primary" href="mailto:admin@leadarc.vip?subject=LeadArc%20Advertiser%20Inquiry">Contact sales →</a></div>
-      </div>
-
-      <div class="card">
-        <div class="badge">Ops & analytics</div>
-        <h3 class="title">Structured testing + weekly iteration</h3>
-        <p>We run a consistent cadence: testing, analysis, and scaling — with clear notes and next steps.</p>
-        <ul class="list" style="margin-top:12px;">
-          <li><span class="dot"></span><span>Creative iteration & messaging</span></li>
-          <li><span class="dot"></span><span>Quality signals & monitoring</span></li>
-          <li><span class="dot"></span><span>Data-informed scaling</span></li>
-        </ul>
-        <div style="margin-top:14px;"><a class="btn" href="ouradvantage.html">See our advantage →</a></div>
-      </div>
-
-      <div class="card">
-        <div class="badge">Affiliates</div>
-        <h3 class="title">Affiliate onboarding</h3>
-        <p>If you're an affiliate, apply through our portal. We review for compliance and program fit.</p>
-        <ul class="list" style="margin-top:12px;">
-          <li><span class="dot"></span><span>Clear terms & communication</span></li>
-          <li><span class="dot"></span><span>Tracking transparency</span></li>
-          <li><span class="dot"></span><span>Support & long-term programs</span></li>
-        </ul>
-        <div style="margin-top:14px;"><a class="btn" href="http://leadarc.fuseclick.com/affaccount/signup?accountid=1">Affiliate signup →</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="how" class="section">
-  <div class="container">
-    <div class="eyebrow">PROCESS</div>
-    <h2>A simple playbook that compounds</h2>
-    <div class="p">Repeatable execution: controlled experiments, clear reporting, and sustainable scaling — with internal traffic at the core.</div>
-
-    <div class="cards" style="grid-template-columns:1fr;margin-top:18px;">
-      <div class="split">
-        <div class="card"><div class="badge">Step 1</div><h3 class="title">Align goals & rules</h3><p>Define KPIs, GEO focus (US/EU), compliance rules, and tracking setup — simple and enforceable.</p></div>
-        <div class="card"><div class="badge">Step 2</div><h3 class="title">Launch controlled tests</h3><p>Start with internal traffic, validate signals, iterate creatives, and confirm offer fit before scaling.</p></div>
-      </div>
-      <div class="card"><div class="badge">Step 3</div><h3 class="title">Scale sustainably</h3><p>Expand budgets while protecting quality: monitoring, policy checks, and weekly optimization cycles.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="partners" class="section">
-  <div class="container">
-    <div class="eyebrow">PARTNERS</div>
-    <h2>Built to scale advertiser growth</h2>
-    <div class="p">If you’re an advertiser, we can propose a tailored plan based on your KPI, vertical, geo, and compliance requirements.</div>
-
-    <div class="split">
-      <div class="card">
-        <div class="badge">Advertisers</div>
-        <h3 class="title">US & EU growth with internal traffic</h3>
-        <p>We emphasize internal Facebook-led inventory and a clean ops model to protect brand and performance.</p>
-        <ul class="list" style="margin-top:12px;">
-          <li><span class="dot"></span><span>Internal traffic focus (Facebook)</span></li>
-          <li><span class="dot"></span><span>Offer positioning & GTM support</span></li>
-          <li><span class="dot"></span><span>Compliance monitoring & reporting</span></li>
-        </ul>
-        <div style="margin-top:14px;"><a class="btn primary" href="mailto:admin@leadarc.vip?subject=LeadArc%20Advertiser%20Inquiry">Talk to us →</a></div>
-      </div>
-
-      <div class="card">
-        <div class="badge">Affiliates</div>
-        <h3 class="title">Apply</h3>
-        <p>Affiliate access is through our portal. We prioritize compliance-forward partners and sustainable conversion.</p>
-        <ul class="list" style="margin-top:12px;">
-          <li><span class="dot"></span><span>Clear terms & communication</span></li>
-          <li><span class="dot"></span><span>Tracking transparency</span></li>
-          <li><span class="dot"></span><span>Long-term programs</span></li>
-        </ul>
-        <div style="margin-top:14px;"><a class="btn" href="http://leadarc.fuseclick.com/affaccount/signup?accountid=1">Affiliate signup →</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="faq" class="section">
-  <div class="container">
-    <div class="eyebrow">FAQ</div>
-    <h2>Common questions</h2>
-    <div class="p">We can tailor this section to your exact program rules and compliance language.</div>
-
-    <div class="cards" style="grid-template-columns:1fr;margin-top:18px;">
-      <div class="card"><h3 class="title">Do you work with internal traffic?</h3><p>Yes — internal traffic is our core, with a strong focus on Facebook-led execution. We can also extend globally based on offer requirements.</p></div>
-      <div class="card"><h3 class="title">How do you manage fraud control?</h3><p>Policy-led rules, traffic validation, monitoring, and quick enforcement. We align requirements upfront and keep reporting transparent.</p></div>
-      <div class="card"><h3 class="title">How do affiliates join?</h3><p>Affiliates apply via our  portal. We review applications for compliance and program fit.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="cta-box">
-      <div class="cta-row">
-        <div>
-          <div class="eyebrow">CONTACT</div>
-          <h2>Ready to launch in US/EU?</h2>
-          <div class="p">
-            Email us your KPI + GEO + vertical, and we’ll propose a simple plan (traffic type, compliance, launch timeline).
-            Reach us at <a href="mailto:admin@leadarc.vip" style="text-decoration:underline;text-underline-offset:4px;">admin@leadarc.vip</a>.
-          </div>
-        </div>
-        <div class="card" style="background:rgba(6,16,39,.35);">
-          <div style="font-size:14px;color:var(--muted);font-weight:900;">Typical reply: 1–2 business days</div>
-          <div style="margin-top:12px;display:flex;gap:10px;">
-            <input class="input" placeholder="Your email" />
-            <a class="btn primary" href="mailto:admin@leadarc.vip?subject=LeadArc%20Advertiser%20Inquiry">Email sales</a>
-          </div>
-          <div style="margin-top:10px;font-size:12px;color:var(--muted2);">Affiliate? Use: <a href="http://leadarc.fuseclick.com/affaccount/signup?accountid=1" style="text-decoration:underline;text-underline-offset:4px;">signup</a></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="container">
-    <div class="footer-row">
-      <div style="display:flex;gap:12px;align-items:center;">
-        <span class="brand-badge"><img src="./images/logo.png" alt="LeadArc" style="height:80px;width:auto;display:block;"></span>
-        <div>
-          <div style="font-weight:900;color:var(--text);letter-spacing:-.01em;">LeadArc</div>
-          <div>Performance Marketing Partner • Internal traffic (Facebook)</div>
-        </div>
-      </div>
-      <div style="display:flex;flex-wrap:wrap;gap:14px;">
-        <a href="#services">Services</a>
-        <a href="#how">How it works</a>
-        <a href="#partners">Advertisers</a>
-        <a href="#faq">FAQ</a>
-        <a href="mailto:admin@leadarc.vip">Contact</a>
-      </div>
-    </div>
-
-    <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px;">
-      <div>© <span id="y"></span> LeadArc. All rights reserved.</div>
-      <div>Internal traffic • Facebook-led • US & EU focus • Global reach</div>
-    </div>
-  </div>
-</footer>
-
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+    <script>
+        // 滚动渐现动画
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); 
+        
+        // 导航栏滚动模糊与缩小
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('py-2', 'bg-dark-900/80', 'shadow-lg');
+                nav.classList.remove('py-3');
+            } else {
+                nav.classList.remove('py-2', 'bg-dark-900/80', 'shadow-lg');
+                nav.classList.add('py-3');
+            }
+        });
+    </script>
 </body>
 </html>
